@@ -1,5 +1,6 @@
 export const metadata = {
     title: "About Us | MCBU Result Guide",
+    description: "Learn more about MCBU Result Guide, our mission to help students, and our disclaimer regarding university affiliation.",
 };
 
 export default function About() {

@@ -6,8 +6,43 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MCBU Result Guide 2026 | Sarkari Result Style",
-  description: "Check Latest MCBU Results, Exam Dates, and Notifications.",
+  metadataBase: new URL("https://www.mcburesults.in"),
+  title: {
+    default: "MCBU Result Guide 2026 | Sarkari Result Style",
+    template: "%s | MCBU Result Guide",
+  },
+  description: "Check Latest MCBU Results, Exam Dates, Syllabus, Admit Cards and Notifications for Maharaja Chhatrasal Bundelkhand University. Unofficial Guide.",
+  keywords: ["MCBU Result 2026", "MCBU Admit Card", "Maharaja Chhatrasal Bundelkhand University", "MCBU Time Table", "MCBU Exam Date", "Sarkari Result", "MP Online"],
+  authors: [{ name: "MCBU Result Guide Team" }],
+  creator: "MCBU Result Guide",
+  publisher: "MCBU Result Guide",
+  openGraph: {
+    title: "MCBU Result Guide 2026 | Latest Updates",
+    description: "Your one-stop destination for all MCBU University updates, results, and exam news.",
+    url: "https://www.mcburesults.in",
+    siteName: "MCBU Result Guide",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MCBU Result Guide 2026",
+    description: "Check Latest MCBU Results and Updates instantly.",
+  },
+  verification: {
+    google: "google-site-verification-code", // Replace with actual code
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

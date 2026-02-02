@@ -1,5 +1,6 @@
 export const metadata = {
     title: "Contact Us | MCBU Result Guide",
+    description: "Contact MCBU Result Guide team for support, feedback, or to report issues. Note: We are not the official university helpdesk.",
 };
 
 export default function Contact() {
