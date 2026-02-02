@@ -24,6 +24,9 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
+  icons: {
+    icon: '/icon.png',
+  },
   twitter: {
     card: "summary_large_image",
     title: "MCBU Result Guide 2026",
