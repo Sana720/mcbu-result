@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,7 @@ export const metadata = {
     description: "Check Latest MCBU Results and Updates instantly.",
   },
   verification: {
-    google: "google-site-verification-code", // Replace with actual code
+    google: "google-site-verification-code",
   },
   robots: {
     index: true,
@@ -97,6 +98,7 @@ export default function RootLayout({ children }) {
             <p style={{ color: '#777', marginTop: '5px' }}>Not affiliated with Maharaja Chhatrasal Bundelkhand University.</p>
           </footer>
         </div>
+        <GoogleAnalytics gaId="G-XYZ1234567" /> {/* Replace with your actual GA ID */}
       </body>
     </html>
   );
