@@ -1,16 +1,19 @@
-/* Global Styles */
+/* Global Styles - Sarkari Portal Theme */
 
 :root {
-  --primary: #720000;
-  --secondary: #007AFF;
-  --accent: #CB2F2F;
-  --background: #F5F5F5;
-  --surface: #ffffff;
-  --text: #212529;
-  --text-light: #6c757d;
-  --border: #e9ecef;
+  --primary: #800000;
+  --primary-dark: #600000;
+  --secondary: #003366;
+  --accent-red: #cc0000;
+  --nav-bg: #222222;
+  --bg-color: #ffffff;
+  --border-color: #dddddd;
+  --link-blue: #0000FF;
+  /* Standard blue link color from screenshot */
+  --header-bg: #800000;
 }
 
+/* Reset & Base */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -18,84 +21,256 @@
 }
 
 body {
-  background-color: var(--background);
-  color: var(--text);
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: var(--link-blue);
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #002a80;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 10px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
 }
 
 /* Utilities */
-.btn {
-  display: inline-flex;
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-white {
+  color: white;
+}
+
+/* Grid of Color Boxes */
+.quick-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.color-box {
+  padding: 15px 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border: none;
-  font-size: 0.95rem;
+  min-height: 60px;
+  text-decoration: none !important;
 }
 
-.btn-primary {
+.color-box:hover {
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.bg-maroon {
+  background-color: #800000;
+}
+
+.bg-blue {
+  background-color: #004d99;
+}
+
+.bg-green {
+  background-color: #00802b;
+}
+
+.bg-orange {
+  background-color: #e65c00;
+}
+
+.bg-teal {
+  background-color: #008080;
+}
+
+.bg-purple {
+  background-color: #660066;
+}
+
+.bg-pink {
+  background-color: #cc0066;
+}
+
+.bg-black {
+  background-color: #333333;
+}
+
+/* 3-Column Layout */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .portal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column-box {
+  border: 1px solid #ccc;
+}
+
+.column-header {
   background-color: var(--primary);
   color: white;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  border-bottom: 2px solid var(--primary-dark);
 }
 
-.btn-primary:hover {
-  background-color: #5a0000;
-  transform: translateY(-1px);
+.column-content {
+  padding: 10px;
 }
 
-.btn-secondary {
-  background-color: var(--secondary);
-  color: white;
+.column-content ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.btn-outline {
-  border: 2px solid var(--primary);
+.column-content li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.column-content li:last-child {
+  border-bottom: none;
+}
+
+.column-content li a::before {
+  content: "• ";
   color: var(--primary);
-  background: transparent;
+  font-weight: bold;
+  margin-right: 5px;
 }
 
-.card {
-  background: var(--surface);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Marquee Section */
+.marquee-container {
+  background: #ffffcc;
+  border: 1px solid #e6e600;
+  padding: 8px;
+  margin: 10px 0;
+  color: #cc0000;
+  font-weight: bold;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+/* --- NEW SARKARI TABLE STYLES --- */
+.sarkari-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  border: 1px solid #000;
 }
 
-.shimmer {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+.sarkari-table th {
+  background-color: #000000;
+  /* Distinct Black Header */
+  color: #ffffff;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #000;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
-  }
+.sarkari-table td {
+  padding: 8px 10px;
+  border: 1px solid #000;
+  /* Strong borders */
+  font-size: 15px;
+  vertical-align: middle;
 }
+
+.sarkari-table tr:nth-child(odd) {
+  background-color: #ffffe0;
+  /* Light yellow tint seen in screenshot */
+}
+
+.sarkari-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.sarkari-btn-blue {
+  color: blue;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sarkari-btn-blue:hover {
+  text-decoration: underline;
+}
+
+/* Social Buttons Bar */
+.social-bar {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #000;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.social-btn:last-child {
+  border-right: none;
+}
+
+.btn-android {
+  background-color: #006400;
+}
+
+/* Dark Green */
+.btn-facebook {
+  background-color: #3b5998;
+}
+
+/* FB Blue */
+.btn-whatsapp {
+  background-color: #25d366;
+}
+
+/* WA Green */
+.btn-telegram {
+  background-color: #0088cc;
+}
+
+/* TG Blue */
