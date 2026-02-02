@@ -36,8 +36,41 @@ export default async function ResultPage({ params }) {
     const session = getCurrentSession();
     const today = new Date().toLocaleDateString('en-GB');
 
+    const jsonLdData = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": result.title,
+        "description": `Check your ${result.title} declared on ${result.date}. Download link available.`,
+        "image": "https://www.mcburesults.in/icon.png",
+        "author": {
+            "@type": "Organization",
+            "name": "MCBU Result Guide"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MCBU Result Guide",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.mcburesults.in/icon.png"
+            }
+        },
+        "datePublished": "2026-01-01", // Ideally dynamic from your data
+        "dateModified": new Date().toISOString()
+    };
+
     return (
         <div style={{ padding: '20px 0' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+            />
+
+            {/* Breadcrumb Navigation */}
+            <nav style={{ fontSize: '12px', marginBottom: '15px', color: '#666' }}>
+                <Link href="/" style={{ color: '#007bff', textDecoration: 'none' }}>Home</Link> &gt;
+                <span style={{ margin: '0 5px' }}>Result</span> &gt;
+                <span style={{ color: '#333' }}>{result.title}</span>
+            </nav>
 
             {/* Title Header */}
             <h1 style={{

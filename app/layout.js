@@ -3,6 +3,7 @@ import "./globals.css";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import JsonLd from "./components/JsonLd";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -92,6 +93,7 @@ export default function RootLayout({ children }) {
               <Link href="/about" style={{ color: '#ccc', margin: '0 10px' }}>About Us</Link> |
               <Link href="/contact" style={{ color: '#ccc', margin: '0 10px' }}>Contact Us</Link> |
               <Link href="/privacy" style={{ color: '#ccc', margin: '0 10px' }}>Privacy Policy</Link> |
+              <Link href="/terms" style={{ color: '#ccc', margin: '0 10px' }}>Terms</Link> |
               <Link href="/disclaimer" style={{ color: '#ccc', margin: '0 10px' }}>Disclaimer</Link>
             </div>
             <p>© 2026 MCBU Result Guide. All Rights Reserved.</p>
@@ -99,6 +101,24 @@ export default function RootLayout({ children }) {
           </footer>
         </div>
         <GoogleAnalytics gaId="G-XYZ1234567" /> {/* Replace with your actual GA ID */}
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "MCBU Result Guide",
+            "url": "https://www.mcburesults.in",
+            "logo": "https://www.mcburesults.in/icon.png",
+            "sameAs": [
+              "https://facebook.com/mcburesultguide",
+              "https://twitter.com/mcburesults"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "support@mcburesults.in",
+              "contactType": "customer service"
+            }
+          }}
+        />
       </body>
     </html>
   );
