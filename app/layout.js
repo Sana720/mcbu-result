@@ -107,6 +107,7 @@ export default function RootLayout({ children }) {
         </div>
         <GoogleAnalytics gaId="G-XYZ1234567" /> {/* Replace with your actual GA ID */}
         <Script src="https://pl28654044.effectivegatecpm.com/d7/d4/af/d7d4af03aa797aa465ed34f08b94c815.js" />
+        <Script src="https://quge5.com/88/tag.min.js" data-zone="209734" data-cfasync="false" />
         <JsonLd
           data={{
             "@context": "https://schema.org",
