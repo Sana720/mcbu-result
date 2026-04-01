@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { results, getArchiveYears } from "@/lib/data";
 import { getDynamicYear, getCurrentSession } from "@/lib/session";
+import AdBanner from "./components/AdBanner";
 
 export default function Home() {
   const currentYear = getDynamicYear(); // 2026
@@ -10,12 +11,18 @@ export default function Home() {
 
   return (
     <div>
+      {/* 728x90 Banner Below Navigation */}
+      <AdBanner adKey="c27df9b2c612611b383a772f47163b7b" height={90} width={728} />
+
       {/* 1. Marquee Section */}
       <div className="marquee-container">
         <marquee behavior="scroll" direction="left" scrollamount="5">
           MCBU Result {currentYear} Declared • BA 1st Year Result {currentYear} • BSc Final Year Marksheet {currentYear} • Check Now
         </marquee>
       </div>
+
+      {/* 468x60 Banner Below Marquee */}
+      <AdBanner adKey="3fc19a8a261a404c0cf2744054511df1" height={60} width={468} />
 
       {/* 2. Headline / Intro */}
       <div className="text-center" style={{ margin: '20px 0' }}>
@@ -25,6 +32,15 @@ export default function Home() {
         <p style={{ fontSize: '13px', color: '#666' }}>
           Welcome to the No. 1 Unofficial Guide for MCBU Results {currentYear}, {nextYear} Upcoming Exams, and Time Tables.
         </p>
+      </div>
+
+      <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+        <a href="https://www.profitablecpmratenetwork.com/i8u1rttg6?key=71dd5acf0804c87e3485b6b258a5a661" target="_blank" style={{
+          background: 'var(--primary)', color: 'white', padding: '12px 24px',
+          borderRadius: '4px', fontWeight: 'bold', fontSize: '18px', display: 'inline-block'
+        }}>
+          CLICK HERE TO CHECK MCBU RESULTS
+        </a>
       </div>
 
       {/* 3. Social Media Buttons */}
@@ -45,8 +61,12 @@ export default function Home() {
         </a>
       </div>
 
+      {/* 320x50 Banner Above Quick Links */}
+      <AdBanner adKey="05a9fed5b9336e468dc482e0c9d488da" height={50} width={320} />
+
       {/* 4. Color Box Grid (Quick Links) */}
       <div className="quick-links-grid">
+        {/* ... (Existing color boxes) */}
         <Link href={`/result/mcbu-ba-1st-year-result-upcoming`} className="color-box bg-maroon">
           MCBU BA 1st Year Result {currentYear}
         </Link>
@@ -73,9 +93,11 @@ export default function Home() {
         </Link>
       </div>
 
+      {/* 300x250 Banner Between Grid and Portal */}
+      <AdBanner adKey="d2083fd3fb9d5389f271e064f1fceb86" height={250} width={300} />
+
       {/* 5. Main 3-Column Layout */}
       <div className="portal-grid">
-
         {/* Column 1: Result */}
         <div className="column-box">
           <div className="column-header">Result {currentYear}</div>
@@ -116,6 +138,8 @@ export default function Home() {
         <div className="column-box">
           <div className="column-header">Latest Updates</div>
           <div className="column-content">
+            {/* 160x300 Banner inside Column 3 */}
+            <AdBanner adKey="f6be2dc59c94ae592d45b54245bf1a98" height={300} width={160} />
             <ul>
               <li><Link href="#">MCBU Exam Time Table {currentYear} Released</Link></li>
               <li><Link href="#">Enrollment Form Last Date Extended</Link></li>
@@ -153,6 +177,8 @@ export default function Home() {
         </div>
       </div>
 
+      {/* 160x600 Banner at the bottom */}
+      <AdBanner adKey="dc4912799eae292bfa33a4a0e6afa865" height={600} width={160} />
     </div>
   );
 }

@@ -108,6 +108,12 @@ export default function RootLayout({ children }) {
         <GoogleAnalytics gaId="G-XYZ1234567" /> {/* Replace with your actual GA ID */}
         <Script src="https://pl28654044.effectivegatecpm.com/d7/d4/af/d7d4af03aa797aa465ed34f08b94c815.js" />
         <Script src="https://quge5.com/88/tag.min.js" data-zone="209734" data-cfasync="false" />
+        
+        {/* New Ad Scripts */}
+        <Script src="https://pl29032146.profitablecpmratenetwork.com/9d/99/f7/9d99f71645127e86f12c28f0f0a31dec.js" />
+        <Script async data-cfasync="false" src="https://pl29032147.profitablecpmratenetwork.com/842b2d9be965fb6e0be25f5fcd075c1f/invoke.js" />
+        <div id="container-842b2d9be965fb6e0be25f5fcd075c1f" style={{ display: 'none' }}></div>
+
         <JsonLd
           data={{
             "@context": "https://schema.org",
