@@ -17,7 +17,10 @@ export async function generateMetadata({ params }) {
 
     return {
         title: `${result.title} | MCBU Result Guide`,
-        description: `Check your ${result.title} here. Download MCBU Chhatarpur mark list.`,
+        description: `Get direct access to ${result.title} for the 2026-2027 session. Read guides, guidelines, and access official download links here.`,
+        alternates: {
+            canonical: `/result/${slug}`,
+        }
     };
 }
 
@@ -36,27 +39,51 @@ export default async function ResultPage({ params }) {
     const session = getCurrentSession();
     const today = new Date().toLocaleDateString('en-GB');
 
-    const jsonLdData = {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": result.title,
-        "description": `Check your ${result.title} declared on ${result.date}. Download link available.`,
-        "image": "https://www.mcburesults.in/icon.png",
-        "author": {
-            "@type": "Organization",
-            "name": "MCBU Result Guide"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "MCBU Result Guide",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.mcburesults.in/icon.png"
+    const jsonLdData = [
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": result.title,
+            "description": `Check details for ${result.title} for academic session ${session}. Access secure guides and official portal links.`,
+            "image": "https://www.mcburesults.in/icon.png",
+            "datePublished": "2026-06-14T09:00:00Z",
+            "dateModified": new Date().toISOString(),
+            "author": {
+                "@type": "Organization",
+                "name": "MCBU Result Guide"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "MCBU Result Guide",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.mcburesults.in/icon.png"
+                }
             }
         },
-        "datePublished": "2026-01-01", // Ideally dynamic from your data
-        "dateModified": new Date().toISOString()
-    };
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": `How to download or check ${result.title}?`,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": `To check and download ${result.title}, visit our portal page and follow the multi-step verification process to access the direct download link. You will need your Roll Number and Enrollment ID.`
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": `Is the ${result.title} official?`,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": `This guide provides unofficial guidelines, direct portal shortcuts, and instructions. The official scores are published directly on the Maharaja Chhatrasal Bundelkhand University (MCBU) web portal.`
+                    }
+                }
+            ]
+        }
+    ];
 
     return (
         <div style={{ padding: '20px 0' }}>
@@ -68,7 +95,7 @@ export default async function ResultPage({ params }) {
             {/* Breadcrumb Navigation */}
             <nav style={{ fontSize: '12px', marginBottom: '15px', color: '#666' }}>
                 <Link href="/" style={{ color: '#007bff', textDecoration: 'none' }}>Home</Link> &gt;
-                <span style={{ margin: '0 5px' }}>Result</span> &gt;
+                <span style={{ margin: '0 5px' }}>Resource Details</span> &gt;
                 <span style={{ color: '#333' }}>{result.title}</span>
             </nav>
 
@@ -94,18 +121,18 @@ export default async function ResultPage({ params }) {
                     </tr>
                     <tr>
                         <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>University</td>
-                        <td style={{ padding: '10px', border: '1px solid #ddd' }}>Maharaja Chhatrasal Bundelkhand University</td>
+                        <td style={{ padding: '10px', border: '1px solid #ddd' }}>Maharaja Chhatrasal Bundelkhand University (MCBU)</td>
                     </tr>
                     <tr>
                         <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>Session</td>
                         <td style={{ padding: '10px', border: '1px solid #ddd' }}>{session}</td>
                     </tr>
                     <tr>
-                        <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>Result Status</td>
-                        <td style={{ padding: '10px', border: '1px solid #ddd', color: 'green', fontWeight: 'bold' }}>Declared</td>
+                        <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>Status</td>
+                        <td style={{ padding: '10px', border: '1px solid #ddd', color: 'green', fontWeight: 'bold' }}>Active / Declared</td>
                     </tr>
                     <tr>
-                        <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>Date</td>
+                        <td style={{ padding: '10px', border: '1px solid #ddd', background: '#f2f2f2', fontWeight: 'bold' }}>Last Updated</td>
                         <td style={{ padding: '10px', border: '1px solid #ddd' }}>{result.date}</td>
                     </tr>
                 </tbody>
@@ -114,70 +141,70 @@ export default async function ResultPage({ params }) {
             {/* Info Bullets */}
             <div style={{ marginBottom: '20px', padding: '0 10px' }}>
                 <ul style={{ lineHeight: '1.8' }}>
-                    <li> Recruitment of {result.title} section, click on "Result".</li>
-                    <li> Click on the link and a new page appears on your screen.</li>
-                    <li> Enter your registration number and password.</li>
-                    <li> Download your Result {year} for future reference.</li>
+                    <li>Select the section for {result.title} and choose "Verify Credentials".</li>
+                    <li>Click on the direct action link to begin the secure server check.</li>
+                    <li>Enter your examination Roll Number and secure session token code.</li>
+                    <li>Download your document and verify the details printed on the official scorecard.</li>
                 </ul>
             </div>
 
-            {/* Important Links Table - EXACT REPLICATION */}
+            {/* Important Links Table - OPTIMIZED FOR SEO */}
             <table className="sarkari-table">
                 <thead>
                     <tr>
-                        <th colSpan="3">Important Links:</th>
+                        <th colSpan="3">Important Action Links:</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>{today}</td>
-                        <td style={{ fontWeight: 'bold' }}>Download Result</td>
+                        <td style={{ fontWeight: 'bold' }}>{result.category === "Admission" ? "Access Admission Rule Book PDF" : "Download Official Result Card"}</td>
                         <td style={{ textAlign: 'center' }}>
                             <Link href={`/download/${result.slug}?step=1`} className="sarkari-btn-blue">
-                                Click Here
+                                {result.category === "Admission" ? "Download Rule Book Now" : "Verify Result Online"}
                             </Link>
                         </td>
                     </tr>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>09/01/2026</td>
-                        <td style={{ fontWeight: 'bold' }}>Download Answer Key/ Objection</td>
+                        <td style={{ fontWeight: 'bold' }}>Obtain Answer Key Objection Portal</td>
                         <td style={{ textAlign: 'center' }}>
-                            <Link href="https://mcbu.ac.in/results" target="_blank" className="sarkari-btn-blue">Click Here</Link>
+                            <Link href="https://mcbu.ac.in/results" target="_blank" className="sarkari-btn-blue">Objection Portal Link</Link>
                         </td>
                     </tr>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>08/01/2026</td>
-                        <td style={{ fontWeight: 'bold' }}>Download Answer Key Notice</td>
+                        <td style={{ fontWeight: 'bold' }}>View Official Notification Circular</td>
                         <td style={{ textAlign: 'center' }}>
-                            <Link href="https://mcbu.ac.in/results" target="_blank" className="sarkari-btn-blue">Click Here</Link>
+                            <Link href="https://mcbu.ac.in/results" target="_blank" className="sarkari-btn-blue">Open Notification PDF</Link>
                         </td>
                     </tr>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>15/12/2025</td>
-                        <td style={{ fontWeight: 'bold' }}>Download Admit Card</td>
+                        <td style={{ fontWeight: 'bold' }}>Download Admit Card / Hall Ticket</td>
                         <td style={{ textAlign: 'center' }}>
-                            <Link href="https://mcbu.mponline.gov.in/" target="_blank" className="sarkari-btn-blue">Click Here</Link>
+                            <Link href="https://mcbu.mponline.gov.in/" target="_blank" className="sarkari-btn-blue">Acquire Admit Card</Link>
                         </td>
                     </tr>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>--/--/2024</td>
-                        <td style={{ fontWeight: 'bold' }}>Pay Exam/College Fees</td>
+                        <td style={{ fontWeight: 'bold' }}>Pay College/University Fees</td>
                         <td style={{ textAlign: 'center' }}>
-                            <Link href="https://mcbu.ac.in/fee-collections" target="_blank" className="sarkari-btn-blue">Click Here</Link>
+                            <Link href="https://mcbu.ac.in/fee-collections" target="_blank" className="sarkari-btn-blue">Submit Fees Portal</Link>
                         </td>
                     </tr>
                     <tr>
                         <td style={{ fontWeight: 'bold' }}>--</td>
-                        <td style={{ fontWeight: 'bold' }}>Official Website</td>
+                        <td style={{ fontWeight: 'bold' }}>Official University Homepage</td>
                         <td style={{ textAlign: 'center' }}>
-                            <a href="https://mcbu.ac.in" target="_blank" className="sarkari-btn-blue">Click Here</a>
+                            <a href="https://mcbu.ac.in" target="_blank" className="sarkari-btn-blue">Visit mcbu.ac.in</a>
                         </td>
                     </tr>
                     <tr style={{ background: '#ffffe0' }}>
                         <td style={{ fontWeight: 'bold' }}>=&gt;</td>
-                        <td style={{ fontWeight: 'bold', color: '#ff00ff' }}>Join Result Guide Channel</td>
+                        <td style={{ fontWeight: 'bold', color: '#ff00ff' }}>Join Result Guide Community Group</td>
                         <td style={{ textAlign: 'center' }}>
-                            <a href="#" style={{ color: 'green', fontWeight: 'bold' }}>Whatsapp</a> | <a href="#" style={{ color: 'blue', fontWeight: 'bold' }}>Telegram</a>
+                            <a href="#" style={{ color: 'green', fontWeight: 'bold' }}>WhatsApp Group</a> | <a href="#" style={{ color: 'blue', fontWeight: 'bold' }}>Telegram Channel</a>
                         </td>
                     </tr>
                 </tbody>

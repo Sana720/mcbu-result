@@ -66,7 +66,9 @@ export default function Home() {
 
       {/* 4. Color Box Grid (Quick Links) */}
       <div className="quick-links-grid">
-        {/* ... (Existing color boxes) */}
+        <Link href={`/result/mcbu-admission-rule-book-2026-2027`} className="color-box bg-maroon" style={{ background: 'linear-gradient(135deg, #d32f2f, #ff6b6b)' }}>
+          MCBU Admission Rule Book {session} (New)
+        </Link>
         <Link href={`/result/mcbu-ba-1st-year-result-upcoming`} className="color-box bg-maroon">
           MCBU BA 1st Year Result {currentYear}
         </Link>
@@ -98,14 +100,16 @@ export default function Home() {
 
       {/* 5. Main 3-Column Layout */}
       <div className="portal-grid">
-        {/* Column 1: Result */}
+        {/* Column 1: Result & Admission */}
         <div className="column-box">
-          <div className="column-header">Result {currentYear}</div>
+          <div className="column-header">Result & Admission {currentYear}</div>
           <div className="column-content">
             <ul>
-              {results.filter(r => r.category === "Result").map((r) => (
+              {results.filter(r => r.category === "Result" || r.category === "Admission").map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/result/${r.slug}`}>{r.title}</Link>
+                  <Link href={`/result/${r.slug}`} style={r.category === "Admission" ? { fontWeight: 'bold', color: '#d32f2f' } : {}}>
+                    {r.category === "Admission" ? "★ " : ""}{r.title}
+                  </Link>
                 </li>
               ))}
               <li><Link href="#">MCBU Revaluation Result {currentYear}</Link></li>
@@ -141,6 +145,11 @@ export default function Home() {
             {/* 160x300 Banner inside Column 3 */}
             <AdBanner adKey="f6be2dc59c94ae592d45b54245bf1a98" height={300} width={160} />
             <ul>
+              <li>
+                <Link href="/result/mcbu-admission-rule-book-2026-2027" style={{ fontWeight: 'bold', color: '#d32f2f' }}>
+                  ★ MCBU Admission Rule Book {session} Released
+                </Link>
+              </li>
               <li><Link href="#">MCBU Exam Time Table {currentYear} Released</Link></li>
               <li><Link href="#">Enrollment Form Last Date Extended</Link></li>
               <li><Link href="#">Exam Form Regular/Private {currentYear}</Link></li>

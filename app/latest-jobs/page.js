@@ -2,8 +2,11 @@ import Link from "next/link";
 import { getDynamicYear } from "@/lib/session";
 
 export const metadata = {
-    title: "Latest MCBU Updates & Jobs",
-    description: "Get all the latest notifications, job openings, and circulars from MCBU.",
+    title: "Latest MCBU Updates & Notifications 2026-27 | Jobs & Exam Circulars",
+    description: "Get all the latest notifications, admission updates, job openings, and exam circulars from Maharaja Chhatrasal Bundelkhand University (MCBU) for the 2026-27 session.",
+    alternates: {
+        canonical: "/latest-jobs",
+    }
 };
 
 export default function LatestJobsPage() {
@@ -35,6 +38,13 @@ export default function LatestJobsPage() {
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td style={{ fontWeight: 'bold', color: '#d32f2f' }}>★ MCBU Admission Rule Book 2026-2027 Released (Session 2026-27)</td>
+                            <td className="text-center">June {currentYear}</td>
+                            <td className="text-center">
+                                <Link href="/result/mcbu-admission-rule-book-2026-2027" className="sarkari-btn-blue">View</Link>
+                            </td>
+                        </tr>
                         <tr>
                             <td>MCBU Exam Time Table {currentYear} Released for Annual Exams</td>
                             <td className="text-center">Jan {currentYear}</td>

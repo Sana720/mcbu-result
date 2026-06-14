@@ -3,7 +3,7 @@ export default function robots() {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: ['/private/', '/download/'],
         },
         sitemap: 'https://www.mcburesults.in/sitemap.xml',
     }

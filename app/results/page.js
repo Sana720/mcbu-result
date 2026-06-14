@@ -3,13 +3,16 @@ import { results } from "@/lib/data";
 import { getDynamicYear } from "@/lib/session";
 
 export const metadata = {
-    title: "MCBU Results | All Semester & Annual Exam Results",
-    description: "Check all declared MCBU Results for BA, BSc, BCom, MA, MSc, and more.",
+    title: "MCBU Results 2026-27 | Semester & Annual Exam Results",
+    description: "Check Maharaja Chhatrasal Bundelkhand University (MCBU) declared results for BA, BSc, BCom, MA, MSc, and other courses for the 2026-27 academic session.",
+    alternates: {
+        canonical: "/results",
+    }
 };
 
 export default function ResultsPage() {
     const currentYear = getDynamicYear();
-    const resultItems = results.filter((r) => r.category === "Result" || r.category === "Time Table");
+    const resultItems = results.filter((r) => r.category === "Result" || r.category === "Time Table" || r.category === "Admission");
 
     return (
         <div className="container" style={{ padding: '20px 10px', maxWidth: '1000px' }}>

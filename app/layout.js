@@ -14,18 +14,21 @@ export const viewport = {
 
 export const metadata = {
   metadataBase: new URL("https://www.mcburesults.in"),
-  title: {
-    default: "MCBU Result 2026 | Latest MCBU Results, Exam Dates, Syllabus, Admit Cards and Notifications",
-    template: "%s | MCBU Result 2026",
+  alternates: {
+    canonical: "/",
   },
-  description: "Check Latest MCBU Results, Exam Dates, Syllabus, Admit Cards and Notifications for Maharaja Chhatrasal Bundelkhand University. Unofficial Guide.",
-  keywords: ["MCBU Result 2026", "MCBU Admit Card", "Maharaja Chhatrasal Bundelkhand University", "MCBU Time Table", "MCBU Exam Date", "Sarkari Result", "MP Online"],
+  title: {
+    default: "MCBU Result 2026-27 | Latest MCBU Results, Exam Dates, Syllabus, Admit Cards and Notifications",
+    template: "%s | MCBU Result 2026-27",
+  },
+  description: "Check Latest MCBU Results, Admission Rules 2026-27, Exam Dates, Syllabus, Admit Cards and Notifications for Maharaja Chhatrasal Bundelkhand University. Unofficial Guide.",
+  keywords: ["MCBU Result 2026-27", "MCBU Admission 2026-27", "MCBU Admit Card", "Maharaja Chhatrasal Bundelkhand University", "MCBU Time Table", "MCBU Exam Date", "Sarkari Result", "MP Online"],
   authors: [{ name: "MCBU Result Guide Team" }],
   creator: "MCBU Result ",
   publisher: "MCBU Result ",
   openGraph: {
-    title: "MCBU Result 2026 | Latest Updates",
-    description: "Your one-stop destination for all MCBU University updates, results, and exam news.",
+    title: "MCBU Result 2026-27 | Latest Updates",
+    description: "Your one-stop destination for all MCBU University updates, results, admissions 2026-27, and exam news.",
     url: "https://www.mcburesults.in",
     siteName: "MCBU Result",
     locale: "en_US",
@@ -36,7 +39,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MCBU Result 2026",
+    title: "MCBU Result 2026-27",
     description: "Check Latest MCBU Results and Updates instantly.",
   },
   verification: {
@@ -63,13 +66,13 @@ export default function RootLayout({ children }) {
 
           {/* Top Warning/Disclaimer Strip */}
           <div style={{ background: '#333', color: 'white', fontSize: '11px', textAlign: 'center', padding: '4px' }}>
-            Disclaimer: This is an Unofficial Guide for MCBU University Results.
+            Disclaimer: This is an Unofficial Guide for MCBU University Results & Admissions.
           </div>
 
           {/* Main Large Header */}
           <header style={{ background: 'var(--primary)', color: 'white', padding: '20px 10px', textAlign: 'center' }}>
             <h1 style={{ fontSize: '32px', fontWeight: 'bold', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
-              MCBU RESULT GUIDE
+              MCBU RESULT & ADMISSION GUIDE
             </h1>
             <p style={{ fontSize: '14px', marginTop: '5px', opacity: 0.9 }}>
               www.mcburesults.in
@@ -82,6 +85,7 @@ export default function RootLayout({ children }) {
               <Link href="/" style={{ color: 'white', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>HOME</Link>
               <Link href="/latest-jobs" style={{ color: 'white', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>LATEST UPDATES</Link>
               <Link href="/results" style={{ color: 'white', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>RESULTS</Link>
+              <Link href="/result/mcbu-admission-rule-book-2026-2027" style={{ color: 'yellow', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>ADMISSION 2026-27</Link>
               <Link href="/admit-card" style={{ color: 'white', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>ADMIT CARD</Link>
               <Link href="/about" style={{ color: 'white', padding: '10px 15px', fontWeight: 'bold', fontSize: '14px', textDecoration: 'none' }}>ABOUT US</Link>
             </div>
@@ -101,17 +105,17 @@ export default function RootLayout({ children }) {
               <Link href="/terms" style={{ color: '#ccc', margin: '0 10px' }}>Terms</Link> |
               <Link href="/disclaimer" style={{ color: '#ccc', margin: '0 10px' }}>Disclaimer</Link>
             </div>
-            <p>© 2026 MCBU Result Guide. All Rights Reserved.</p>
+            <p>© 2026-2027 MCBU Result Guide. All Rights Reserved.</p>
             <p style={{ color: '#777', marginTop: '5px' }}>Not affiliated with Maharaja Chhatrasal Bundelkhand University.</p>
           </footer>
         </div>
         <GoogleAnalytics gaId="G-XYZ1234567" /> {/* Replace with your actual GA ID */}
-        <Script src="https://pl28654044.effectivegatecpm.com/d7/d4/af/d7d4af03aa797aa465ed34f08b94c815.js" />
-        <Script src="https://quge5.com/88/tag.min.js" data-zone="209734" data-cfasync="false" />
+        <Script src="https://pl28654044.effectivegatecpm.com/d7/d4/af/d7d4af03aa797aa465ed34f08b94c815.js" strategy="lazyOnload" />
+        <Script src="https://quge5.com/88/tag.min.js" data-zone="209734" data-cfasync="false" strategy="lazyOnload" />
         
         {/* New Ad Scripts */}
-        <Script src="https://pl29032146.profitablecpmratenetwork.com/9d/99/f7/9d99f71645127e86f12c28f0f0a31dec.js" />
-        <Script async data-cfasync="false" src="https://pl29032147.profitablecpmratenetwork.com/842b2d9be965fb6e0be25f5fcd075c1f/invoke.js" />
+        <Script src="https://pl29032146.profitablecpmratenetwork.com/9d/99/f7/9d99f71645127e86f12c28f0f0a31dec.js" strategy="lazyOnload" />
+        <Script data-cfasync="false" src="https://pl29032147.profitablecpmratenetwork.com/842b2d9be965fb6e0be25f5fcd075c1f/invoke.js" strategy="lazyOnload" />
         <div id="container-842b2d9be965fb6e0be25f5fcd075c1f" style={{ display: 'none' }}></div>
 
         <JsonLd
